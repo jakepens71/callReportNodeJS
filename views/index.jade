@@ -1,0 +1,39 @@
+extends layout
+
+block content
+    h1= title
+    p Welcome to #{title}
+
+    h2 Call Report
+    #Call Report Form
+       fieldset
+           input#inputCustomerName(type='text', placeholder="Customer Name")
+           input#inputCustomerID(type='text', placeholder="Customer ID")
+           br
+           input#inputCustomerAddress(type='text', placeholder="Customer Address")
+           br
+           input#inputCustomerContacts(type='text', placeholder="Contacts")
+           input#inputCustomerEmail(type='text', placeholder="Email")
+           br
+           input#inputDate(type='date')
+           br
+           input#inputCallReportBody(type='text', placeholder="Input Call Status")
+           br
+           button#btnaddCallReport Add Call Report
+
+    // Wrapper
+    #wrapper
+
+        // USER LIST
+        h3 Call Report List
+        #callreportlist
+            table
+                thead
+                    th CustomerName
+                    th Contact
+                    th Phone
+                    th Address
+                tbody
+        // /USER LIST
+
+   // /WRAPPER
