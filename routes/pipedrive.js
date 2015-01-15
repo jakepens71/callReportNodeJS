@@ -1,21 +1,21 @@
 var express = require('express');
 var router = express.Router();
+var Pipedrive = require('pipedrive');
+var pipedrive = new Pipedrive.Client('22f8cf1796a11f556409fdf2393d2ff0b83bdf7e');
+
 
 /* GET users listing. */
 router.get('/', function(req, res) 
 {
-
- var Pipedrive = require('pipedrive');
- var pipedrive = new Pipedrive.Client('22f8cf1796a11f556409fdf2393d2ff0b83bdf7e');
  var orgName = [];
 
 
- pipedrive.Organizations.getAll({}, function(err, deals) 
+ pipedrive.Organizations.getAll({}, function(err, organization) 
   {
 	    if (err) throw err;
-	    for (var i = 0; i < deals.length; i++) 
+	    for (var i = 0; i < organization.length; i++) 
 	    {
-	      orgName.push(deals[i].name);
+	      orgName.push(organization[i].name);
 	    	
 	    }
 	    
@@ -23,5 +23,25 @@ router.get('/', function(req, res)
 	    res.json(orgName);
   });
 });
+
+router.get('/orgStreetAdress', function(req, res)
+{
+ var orgStreetAdress = [];
+
+ pipedrive.Organizations.getAll({}, function(err, organization) 
+  {
+	    if (err) throw err;
+	    for (var i = 0; i < organization.length; i++) 
+	    {
+	      orgStreetAdress.push(organization[i].address);
+	    	
+	    }
+	    
+	    
+	    res.json(orgStreetAdress);
+  });
+
+
+})
 
 module.exports = router;
