@@ -1,8 +1,36 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  width: auto;
+  height: auto;
+  
 }
 
-a {
-  color: #00B7FF;
+
+#inputCallReportBody {
+	height: 550px;
+	width: 1020px;
+	padding: 5px;
+	font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+
+.navbar {
+	width: auto;
+	height: auto;
+	background-color: #2c2c2c;
+  backround-image: none;
+  background-repeat: no-repeat;
+  filter: none;
+  background-image: linear-gradient(bottom, rgb(24,39,74) 7%, rgb(27,57,128) 75%);
+background-image: -o-linear-gradient(bottom, rgb(24,39,74) 7%, rgb(27,57,128) 75%);
+background-image: -moz-linear-gradient(bottom, rgb(24,39,74) 7%, rgb(27,57,128) 75%);
+background-image: -webkit-linear-gradient(bottom, rgb(24,39,74) 7%, rgb(27,57,128) 75%);
+background-image: -ms-linear-gradient(bottom, rgb(24,39,74) 7%, rgb(27,57,128) 75%);
+
+background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0.07, rgb(24,39,74)),
+	color-stop(0.75, rgb(27,57,128))
+);
+}
+

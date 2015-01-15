@@ -78,9 +78,9 @@ function orgCustomerID()
         $('#inputCustomerID').autocomplete
         ({
             source: data
-        })
-    })
-}
+        });
+    });
+};
 
 
 //Add callreport
