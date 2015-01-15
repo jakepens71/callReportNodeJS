@@ -16,6 +16,7 @@
     "pipedrive": "*",
     "date-utils": "*",
     "mongodb": "*",
-    "mongoskin": "*"
+    "mongoskin": "*",
+    "autocomplete": "0.0.1"
   }
 }

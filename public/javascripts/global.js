@@ -5,7 +5,7 @@ var callreportlist = [];
 $(document).ready(function()
 {
   populateTable();
-  orgNames())
+  orgNames();
 
   $('#btnaddCallReport').on('click', addCallReport);
 
@@ -38,13 +38,13 @@ function populateTable()
 function orgNames()
 {
     var organizationname = '';
-    $.getJSON('/pipedrive', function(data)
+    
+    $.get('/pipedrive', function(data)
     {
-        $.each(data, function()
-        {
-            organizationname = this.name;
-            console.log(organizationname);
-        }
+        $('#inputCustomerName').autocomplete
+        ({
+            source: data
+        });
     });
 };
 

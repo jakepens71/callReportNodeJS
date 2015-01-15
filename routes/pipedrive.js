@@ -9,6 +9,7 @@ router.get('/', function(req, res)
  var pipedrive = new Pipedrive.Client('22f8cf1796a11f556409fdf2393d2ff0b83bdf7e');
  var orgName = [];
 
+
  pipedrive.Organizations.getAll({}, function(err, deals) 
   {
 	    if (err) throw err;
@@ -17,8 +18,9 @@ router.get('/', function(req, res)
 	      orgName.push(deals[i].name);
 	    	
 	    }
-
-	    res.end(JSON.stringify(orgName));
+	    
+	    
+	    res.json(orgName);
   });
 });
 
