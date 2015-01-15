@@ -19,7 +19,7 @@ router.post('/callreportform', function(req, res)
 
 router.post('/getcustomernamefield', function(req, res)
 {
-	console.log(req.customername);
+	console.log(req.body.data);
 })
 
 module.exports = router;
