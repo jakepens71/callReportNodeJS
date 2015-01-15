@@ -8,12 +8,21 @@ $(document).ready(function()
   orgNames();
   orgStreetAddress();
   orgCustomerID();
+  getCustomerField();
 
   $('#btnaddCallReport').on('click', addCallReport);
+  
 
 });
 
 //Functions ================================================================
+
+
+function getCustomerField()
+{
+  var customername = $("#inputCustomerName").val(this.value);
+  $("#getCustomerName").alert(customername);
+};
 
 //Fill Table with data
 function populateTable() 

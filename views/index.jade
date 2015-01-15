@@ -1,20 +1,20 @@
 extends layout
   
 block content
-    h1
+    h1#getCustomerName
 
     #Call Report Form
-       fieldset
-           input#inputCustomerName(type='text', placeholder="Customer Name")
-           input#inputCustomerID(type='text', placeholder="Customer ID")
+       form(action='/callreportform', method='post')
+           input#inputCustomerName(type='text', placeholder="Customer Name", name="customername")
+           input#inputCustomerID(type='text', placeholder="Customer ID", name="customerid")
            br
-           input#inputCustomerAddress(type='text', placeholder="Customer Address")
+           input#inputCustomerAddress(type='text', placeholder="Customer Address", name="customeraddress")
            br
-           input#inputCustomerContacts(type='text', placeholder="Contacts")
-           input#inputCustomerEmail(type='text', placeholder="Email")
+           input#inputCustomerContacts(type='text', placeholder="Contacts", name="customercontacts")
+           input#inputCustomerEmail(type='text', placeholder="Email", name="email")
            br
-           input#inputDate(type='date')
+           input#inputDate(type='date', name="date")
            br
-           textarea#inputCallReportBody(type='text', placeholder="Input Call Status")
+           textarea#inputCallReportBody(type='text', placeholder="Input Call Status", name="callreport")
            br
            button#btnaddCallReport Add Call Report

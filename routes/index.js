@@ -10,4 +10,11 @@ router.get('/addCallReport', function(req, res){
 	res.render(inputCustomerName );
 })
 
+
+
+router.post('/callreportform', function(req, res)
+{
+	res.render('index', 'Successfully Submited');
+})
+
 module.exports = router;

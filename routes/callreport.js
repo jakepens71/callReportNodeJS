@@ -19,4 +19,10 @@ router.get('/addcallreport', function(req, res)
 });
 
 
+router.post('/', function(req, res)
+{
+	var customername = req.body.customername;
+})
+
+
 module.exports = router;
