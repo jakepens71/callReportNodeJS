@@ -7,6 +7,7 @@ $(document).ready(function()
   populateTable();
   orgNames();
   orgStreetAddress();
+  orgCustomerID();
 
   $('#btnaddCallReport').on('click', addCallReport);
 
@@ -64,6 +65,21 @@ function orgStreetAddress()
          source: data
       })
    })
+}
+
+//Gets the organization IDS from /pipedrive/customerID url.
+//Autocomplete field for inputCustomerID
+function orgCustomerID()
+{
+    var ogCustomerID = '';
+
+    $.get('/pipedrive/CustomerID', function(data)
+    {
+        $('#inputCustomerID').autocomplete
+        ({
+            source: data
+        })
+    })
 }
 
 

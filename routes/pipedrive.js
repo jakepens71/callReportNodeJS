@@ -4,7 +4,7 @@ var Pipedrive = require('pipedrive');
 var pipedrive = new Pipedrive.Client('22f8cf1796a11f556409fdf2393d2ff0b83bdf7e');
 
 
-/* GET users listing. */
+// gets customer names from pipedrive
 router.get('/', function(req, res) 
 {
  var orgName = [];
@@ -24,6 +24,7 @@ router.get('/', function(req, res)
   });
 });
 
+//gets the organization street address from pipedrive
 router.get('/orgStreetAddress', function(req, res)
 {
  var orgStreetAdress = [];
@@ -34,11 +35,34 @@ router.get('/orgStreetAddress', function(req, res)
 	    for (var i = 0; i < organization.length; i++) 
 	    {
 	      orgStreetAdress.push(organization[i].address);
+
 	    	
 	    }
 	    
 	    
 	    res.json(orgStreetAdress);
+  });
+
+
+})
+
+//gets the customer id from pipedrive
+router.get('/customerID', function(req, res)
+{
+	var orgCustomerID = [];
+
+	pipedrive.Organizations.getAll({}, function(err, organization) 
+  {
+	    if (err) throw err;
+	    for (var i = 0; i < organization.length; i++) 
+	    {
+	      orgCustomerID.push(organization[i].id);
+	    
+	    	
+	    }
+	    
+	    
+	    res.json(orgCustomerID);
   });
 
 
