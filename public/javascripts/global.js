@@ -140,6 +140,4 @@ function addCallReport(event)
         alert('Please fill in all fields');
         return false;
     }
-
-
 };

@@ -4,14 +4,6 @@ body {
   
 }
 
-
-#inputCallReportBody {
-	height: 550px;
-	width: 1020px;
-	padding: 5px;
-	font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
 .navbar {
 	width: auto;
 	height: auto;
@@ -34,3 +26,14 @@ background-image: -webkit-gradient(
 );
 }
 
+#inputCallReportBody {
+	height: 550px;
+	width: 1020px;
+	padding: 5px;
+	font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+fieldset {
+	position: center;
+	position: absolute;
+}
