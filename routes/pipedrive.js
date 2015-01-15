@@ -24,7 +24,7 @@ router.get('/', function(req, res)
   });
 });
 
-router.get('/orgStreetAdress', function(req, res)
+router.get('/orgStreetAddress', function(req, res)
 {
  var orgStreetAdress = [];
 

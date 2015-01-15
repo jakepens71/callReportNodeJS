@@ -6,6 +6,7 @@ $(document).ready(function()
 {
   populateTable();
   orgNames();
+  orgStreetAddress();
 
   $('#btnaddCallReport').on('click', addCallReport);
 
@@ -35,6 +36,8 @@ function populateTable()
 
 };
 
+//Gets the organization names from /pipedrive url.
+//Autocomplete fields for inputCustomerName.
 function orgNames()
 {
     var organizationname = '';
@@ -47,6 +50,21 @@ function orgNames()
         });
     });
 };
+
+//Gets the organization address from /pipedrive/orgStreetAddress url.
+//Autocomplete field for inputCustomerAddress
+function orgStreetAddress()
+{
+    var orgStreetAddress = '';
+
+   $.get('/pipedrive/orgStreetAddress', function(data)
+   {
+      $('#inputCustomerAddress').autocomplete
+      ({
+         source: data
+      })
+   })
+}
 
 
 //Add callreport
