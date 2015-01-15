@@ -8,7 +8,7 @@ $(document).ready(function()
   orgNames();
   orgStreetAddress();
   orgCustomerID();
-  getCustomerField();
+  autofillform();
 
   $('#btnaddCallReport').on('click', addCallReport);
   
@@ -18,11 +18,30 @@ $(document).ready(function()
 //Functions ================================================================
 
 
-function getCustomerField()
+function autofillform()
 {
-  var customername = $("#inputCustomerName").val(this.value);
-  $("#getCustomerName").alert(customername);
+  var customername = document.getElementById("inputCustomerName").value;
+  var customerid =  document.getElementById('inputCustomerID').value;
+    
+ 
+      $("#inputCustomerName").change(function()
+      {
+        var customername = document.getElementById("inputCustomerName").value;
+        console.log(customername);
+
+        $.ajax(
+        {
+          url: '/getcustomernamefield',
+          type: "POST",
+          data: {
+            data: document.getElementById("inputCustomerName").value
+          }
+        })
+          
+      });
+
 };
+
 
 //Fill Table with data
 function populateTable() 

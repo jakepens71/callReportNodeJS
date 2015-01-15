@@ -17,4 +17,9 @@ router.post('/callreportform', function(req, res)
 	res.render('index', 'Successfully Submited');
 })
 
+router.post('/getcustomernamefield', function(req, res)
+{
+	console.log(req.customername);
+})
+
 module.exports = router;
