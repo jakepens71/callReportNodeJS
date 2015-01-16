@@ -28,6 +28,7 @@ router.post('/callreportform', function(req, res)
 	var customercontacts = req.body.customercontacts;
 	var customeremail = req.body.email;
 	var date = req.body.date;
+	var salesperson = req.body.salesperson;
 	var callbody = req.body.callreport;
 	console.log(req.body.customername);
 	console.log(req.body.customerid);
@@ -37,6 +38,7 @@ router.post('/callreportform', function(req, res)
 	console.log(customercontacts);
 	console.log(customeremail);
 	console.log(date);
+	console.log(salesperson);
 	console.log(callbody);
 
 	res.render('index', 'succesfully submited');
