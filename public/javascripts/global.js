@@ -8,39 +8,16 @@ $(document).ready(function()
   orgNames();
   orgStreetAddress();
   orgCustomerID();
-  autofillform();
 
-  $('#btnaddCallReport').on('click', addCallReport);
+
   
+
 
 });
 
 //Functions ================================================================
 
 
-function autofillform()
-{
-  var customername = document.getElementById("inputCustomerName").value;
-  var customerid =  document.getElementById('inputCustomerID').value;
-    
- 
-      $("#inputCustomerName").change(function()
-      {
-        var customername = document.getElementById("inputCustomerName").value;
-        console.log(customername);
-
-        $.ajax(
-        {
-          url: '/getcustomernamefield',
-          type: "POST",
-          data: {
-            data: document.getElementById("inputCustomerName").value
-          }
-        })
-         
-      });
-
-};
 
 
 //Fill Table with data
@@ -78,6 +55,8 @@ function orgNames()
             source: data
         });
     });
+
+
 };
 
 //Gets the organization address from /pipedrive/orgStreetAddress url.
