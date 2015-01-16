@@ -24,8 +24,14 @@ router.post('/getcustomernamefield', function(req, res)
 	var customername = req.body.data;
 	console.log(customername);
 
-	
-	
+	pipedrive.SearchResults.field({
+    term: customername,
+    exact_match: true,
+    field_key: "name",
+    field_type: "organizationsField",
+    return_item_ids: true
+});
+
 })
 
 
