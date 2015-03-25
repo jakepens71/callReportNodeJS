@@ -59,6 +59,15 @@ function orgNames()
 
 };
 
+function downloadReport()
+{
+   $.get('/callreportform', function(data)
+    {
+       
+
+    });
+};
+
 //Gets the organization address from /pipedrive/orgStreetAddress url.
 //Autocomplete field for inputCustomerAddress
 function orgStreetAddress()

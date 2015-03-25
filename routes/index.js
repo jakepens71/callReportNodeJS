@@ -1,7 +1,13 @@
 var express = require('express');
 var router = express.Router();
-var Pipedrive = require('pipedrive');
-var pipedrive = new Pipedrive.Client('22f8cf1796a11f556409fdf2393d2ff0b83bdf7e');
+
+var appRoot = require('app-root-path');
+
+var fs = require('fs');
+Docxtemplater = require('docxtemplater');
+
+var temp = require('temp')
+
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -19,29 +25,63 @@ router.get('/addCallReport', function(req, res)
 
 router.post('/callreportform', function(req, res)
 {
-	
-	var customername = req.body.customername;
-	var customerid = req.body.customerid;
-	var customeraddress = req.body.customeraddress;
-	var customerphonenum = req.body.customerphonenumber;
-	var customerfax = req.body.customerfaxnumber;
-	var customercontacts = req.body.customercontacts;
-	var customeremail = req.body.email;
-	var date = req.body.date;
-	var salesperson = req.body.salesperson;
-	var callbody = req.body.callreport;
-	console.log(req.body.customername);
-	console.log(req.body.customerid);
-	console.log(customeraddress);
-	console.log(customerphonenum);
-	console.log(customerfax);
-	console.log(customercontacts);
-	console.log(customeremail);
-	console.log(date);
-	console.log(salesperson);
-	console.log(callbody);
+       var content = fs.readFileSync(appRoot+"/callreport.docx", "binary");
 
-	res.render('index', 'succesfully submited');
+       var doc = new Docxtemplater(content);
+
+
+       doc.setData
+       ({
+         "customername":req.body.customername,
+	 "customerid":req.body.customerid,
+	 "customeraddress":req.body.customeraddress,
+	 "phone":req.body.customerphonenumber,
+	 "fax":req.body.customerfaxnumber,
+	 "contacts":req.body.customercontacts,
+	 "email":req.body.email,
+	 "date":req.body.date,
+	 "salesperson":req.body.salesperson,
+	 "body":req.body.callreport
+       });
+
+        doc.render();
+        var buf = doc.getZip().generate({type:"nodebuffer"});
+
+        var filename = req.body.salesperson + "_" + req.body.customername + "_" + req.body.date;
+
+
+
+
+        fs.writeFileSync(appRoot+"/"+filename+".docx", buf);
+
+        var file = fs.createReadStream(appRoot+"/"+filename+".docx", doc);
+
+        file.on('end', function()
+           {
+		
+              
+       });
+        
+	res.download(filename.toString()+'.docx', function(err)
+	{
+	   if(err)
+            {
+
+            }
+           else
+            {
+		fs.unlink(appRoot+"/"+filename+".docx");
+            }
+	});
+         
+	console.log(file);
+	
+
+
+	
+	
+
+       
 	
 })
 

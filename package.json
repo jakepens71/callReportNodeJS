@@ -17,6 +17,7 @@
     "date-utils": "*",
     "mongodb": "*",
     "mongoskin": "*",
-    "autocomplete": "0.0.1"
+    "autocomplete": "0.0.1",
+    "app-root-path": "~1.0.0"
   }
 }
